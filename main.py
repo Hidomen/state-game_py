@@ -36,9 +36,8 @@ while len(guessed_states) < 50:
         guessed_states.append(answer_state)
 
     if answer_state == "Exit":
-        for state in all_states:
-            if state not in guessed_states:
-                missed_states.append(state)
+        missed_states = [state for state in all_states if state not in guessed_states]
+        
 
         new_data = pandas.DataFrame(missed_states)
         new_data.to_csv("missed_states.csv")
