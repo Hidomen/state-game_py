@@ -15,9 +15,12 @@ guessed_states = []
 missed_states = []
 
 while len(guessed_states) < 50:
-    answer_state = screen.textinput(f"Guess the State {len(guessed_states)}/50", 
+    try:
+        answer_state = screen.textinput(f"Guess the State {len(guessed_states)}/50", 
                                     "Guess another state's name")
-    
+    except AttributeError:
+        break
+    #
     if answer_state != "":
         answer_state = answer_state.title()
     else:
